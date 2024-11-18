@@ -1,0 +1,36 @@
+# Initialize a 256-qubit register
+qubits = Register(256)
+
+# Define gates and operations
+H(qubits[0])  # Apply Hadamard gate to qubit 0
+CX(qubits[0], qubits[1])  # Apply CNOT gate between qubit 0 and 1
+
+# Measure qubits
+result = Measure(qubits)
+
+# Print result
+print(result)
+2.2 Key Language Constructs
+2.2.1 Qubit Management
+Initialization:
+
+Single qubit:
+qasm256
+Copy code
+q = Qubit()
+Multi-qubit register:
+qubits = Register(256)  # Initialize a 256-qubit system
+Entanglement:
+Entangle(qubits[0:3])  # Entangle qubits 0 to 3
+X(qubits[0])  # Pauli-X gate
+Y(qubits[1])  # Pauli-Y gate
+Z(qubits[2])  # Pauli-Z gate
+H(qubits[3])  # Hadamard gate
+CX(qubits[0], qubits[1])  # CNOT gate
+CCX(qubits[0], qubits[1], qubits[2])  # Toffoli gate
+def MyGate(q1, q2):
+    H(q1)
+    CX(q1, q2)
+result = Measure(qubits[0])
+result = Measure(qubits[0])
+result = Measure(qubits)
