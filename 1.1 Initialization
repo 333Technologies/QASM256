@@ -1,0 +1,18 @@
+Initialization in QASM256 is straightforward and allows for flexibility in defining quantum states. It includes support for single-qubit, multi-qubit, and entangled state initialization.
+
+Syntax:
+
+INIT |ψ> AS Q[n];  
+
+
+|ψ>: Represents the desired initial state.
+Q[n]: Specifies the qubit or register to initialize.
+
+Initialize a single qubit to state |0>:
+INIT |0> AS Q[1];  
+
+Initialize an entire register to |+> (superposition)
+INIT |+> AS Q[1 TO 5];  
+
+Prepare a Bell state
+INIT |BELL> AS Q[1, 2];  
