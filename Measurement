@@ -1,0 +1,91 @@
+1.3 Measurement
+Measurement is a critical part of quantum programming, and QASM256 simplifies it with flexible syntax.
+
+Syntax:
+
+
+MEASURE [QUBIT(S)] TO [CLASSICAL REGISTER];  
+[QUBIT(S)]: The qubit(s) to measure.
+[CLASSICAL REGISTER]: The classical register to store the measurement result.
+Examples:
+
+Measure a single qubit:
+
+MEASURE Q[1] TO CLASSICAL[C1];  
+Measure an entire register:
+
+MEASURE Q[1 TO 5] TO CLASSICAL[C[1 TO 5]];  
+Conditional Operations Based on Measurement:
+QASM256 allows conditional logic based on measurement outcomes.
+
+
+IF CLASSICAL[C1] == 1 THEN APPLY X ON Q[2];  
+2. Advanced Syntax Features
+2.1 Modularity
+Modularity is one of the core innovations of QASM256, allowing developers to define reusable blocks of quantum logic.
+
+Syntax:
+
+
+MODULE [MODULE_NAME] {  
+    [QUANTUM OPERATIONS];  
+}  
+Example:
+Define a module for creating a Bell state:
+
+
+MODULE CreateBellPair {  
+    APPLY H ON Q[1];  
+    APPLY CNOT Q[1], Q[2];  
+}  
+APPLY CreateBellPair ON Q[1, 2];  
+2.2 Auto-Generative Functions
+QASM256 introduces automation features for generating quantum circuits dynamically.
+
+Syntax:
+
+
+AUTO_GENERATE [PARAMETERS];  
+Examples:
+
+Auto-generate an entangled register:
+
+
+AUTO_GENERATE QUBITS[1 TO 10] AS ENTANGLED;  
+Automatically apply a variational algorithm:
+
+AUTO_EXECUTE VQE FOR HAMILTONIAN[H];  
+2.3 Error Correction
+Error correction is built into QASM256 with syntax to simplify the application of standard protocols like Shor’s and Surface Codes.
+
+Syntax:
+
+
+APPLY [ERROR_CORRECTION_SCHEME] ON [QUBITS];  
+Examples:
+
+Apply Shor’s code:
+
+APPLY SHOR_CORRECTION Q[1 TO 9];  
+Apply a custom error correction module:
+
+
+MODULE MyErrorCorrection {  
+    APPLY ENCODED_GATE ON Q[1 TO 3];  
+}  
+APPLY MyErrorCorrection ON Q[1 TO 3];  
+2.4 Hybrid Integration
+QASM256 is designed for hybrid quantum-classical workflows, allowing real-time interaction between classical and quantum resources.
+
+Syntax:
+
+
+VARIATIONAL_ALGO [ALGO_NAME] USING CLASSICAL[RESOURCE];  
+Examples:
+
+Run a Variational Quantum Eigensolver (VQE):
+
+VARIATIONAL_ALGO VQE[H] USING CLASSICAL[OPTIMIZER];  
+Perform hybrid AI training:
+
+APPLY TRAIN_MODEL [QUBITS] USING CLASSICAL[AI_FRAMEWORK];  
