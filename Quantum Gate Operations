@@ -1,0 +1,23 @@
+APPLY [GATE] ON [QUBIT(S)];  
+
+[GATE]: Specifies the quantum gate to apply (e.g., H, X, CNOT, etc.).
+[QUBIT(S)]: Indicates the qubit(s) on which the gate acts.
+
+APPLY H ON Q[1];  
+
+
+APPLY CNOT Q[1], Q[2];  
+
+APPLY RX(π/4) ON Q[3];  
+
+
+APPLY CCNOT Q[1], Q[2], Q[3];  
+
+
+APPLY CCNOT Q[1], Q[2], Q[3];  
+
+
+MEASURE [QUBIT(S)] TO [CLASSICAL REGISTER];  
+[QUBIT(S)]: The qubit(s) to measure.
+[CLASSICAL REGISTER]: The classical register to store the measurement result.
+
